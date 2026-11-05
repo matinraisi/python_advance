@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import *
-
-# Create your views here.
+from .models import Product
 
 def Hello(request):
     p_list = Product.objects.all()
-    return HttpResponse(p_list)
+    context = {
+        'products': p_list
+
+        }
+    
+    return render(request, 'core/index.html',context )
