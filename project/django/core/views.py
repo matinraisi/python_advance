@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import *
 
 # Create your views here.
 
 def Hello(request):
-    return HttpResponse("matinasdkvjnskjdvn;lsdnv;lsdvn")
+    p_list = Product.objects.all()
+    return HttpResponse(p_list)
